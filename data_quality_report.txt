@@ -1,0 +1,33 @@
+DATA QUALITY REPORT – FLEXIMART ETL PIPELINE
+------------------------------------------
+
+File: customers_raw.csv
+-----------------------
+Total records processed      : 25
+Duplicate records removed    : 1
+Missing emails handled       : 5 (records dropped)
+Phone formats standardized   : Yes
+Date formats standardized    : Yes
+Records loaded successfully  : 19
+
+File: products_raw.csv
+----------------------
+Total records processed      : 20
+Duplicate records removed    : 0
+Missing prices handled       : 3 (filled with average price)
+Missing stock handled        : 1 (defaulted to 0)
+Category names standardized  : Yes
+Records loaded successfully  : 20
+
+File: sales_raw.csv
+-------------------
+Total records processed      : 40
+Duplicate transactions removed : 1
+Missing customer_ids handled   : 3 (records dropped)
+Missing product_ids handled    : 2 (records dropped)
+Date formats standardized      : Yes
+Records loaded successfully    : 34
+
+------------------------------------------
+ETL COMPLETED SUCCESSFULLY
+------------------------------------------
