@@ -1,0 +1,24 @@
+Section A: Limitations of RDBMS
+Relational databases struggle when managing highly diverse product catalogs like FlexiMart’s. Different product types have different attributes—electronics require RAM, processor, and storage details, while fashion products require size, color, and material. In an RDBMS, this leads to either many nullable columns or multiple product-specific tables, increasing complexity and reducing flexibility.
+
+Frequent schema changes are another limitation. Introducing a new product type requires ALTER TABLE operations, which can be expensive and risky in production systems. These changes may also cause downtime or data migration issues.
+
+Storing customer reviews is also inefficient in relational databases. Reviews require separate tables and joins, increasing query complexity and reducing performance when fetching product details along with reviews. Overall, rigid schemas, frequent migrations, and heavy joins make RDBMS less suitable for rapidly evolving and diverse product catalogs.
+
+⸻
+
+Section B: NoSQL Benefits
+
+MongoDB addresses these challenges through its flexible, document-based schema. Each product is stored as a JSON-like document, allowing different products to have different attributes without schema modifications. New product types can be added easily by inserting documents with new fields, eliminating costly schema migrations.
+
+MongoDB supports embedded documents, making it ideal for storing customer reviews directly within product documents. This improves read performance by avoiding joins and allows fetching complete product information in a single query.
+
+Additionally, MongoDB offers horizontal scalability using sharding. As FlexiMart’s product catalog and user traffic grow, MongoDB can distribute data across multiple nodes, ensuring high availability and performance. This flexibility, scalability, and efficient handling of nested data make MongoDB well-suited for managing diverse and evolving product catalogs.
+
+⸻
+
+Section C: Trade-offs
+
+One disadvantage of MongoDB is weaker support for complex transactions compared to MySQL. While MongoDB supports transactions, they are generally less efficient than relational database transactions, making it less suitable for financial operations.
+
+Another drawback is data consistency enforcement. MongoDB does not enforce strict schemas or foreign key constraints, increasing the risk of inconsistent or duplicate data if validation is not handled at the application level. This requires additional development effort to maintain data integrity.
